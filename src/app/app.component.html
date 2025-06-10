@@ -1,0 +1,21 @@
+<app-header></app-header>
+
+<main>
+  <div id="dashboard">
+    <app-shared
+      [image]="{ src: 'status.png', alt: 'Server Status' }"
+      title="Server Status"
+    >
+      <app-sever-status></app-sever-status>
+    </app-shared>
+    <app-shared [image]="{ src: 'globe.png', alt: 'Traffic' }" title="Traffic">
+      <app-traffic-dashboard></app-traffic-dashboard>
+    </app-shared>
+    <app-shared
+      [image]="{ src: 'list.png', alt: 'Support Tickets' }"
+      title="Support Tickets"
+    >
+      <app-support-tickets></app-support-tickets>
+    </app-shared>
+  </div>
+</main>
