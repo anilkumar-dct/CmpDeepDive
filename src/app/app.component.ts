@@ -11,11 +11,11 @@ import { SharedComponent } from './body/shared/shared.component';
   standalone: true,
   templateUrl: './app.component.html',
   imports: [
-    HeaderComponent,
     SeverStatusComponent,
     TrafficDashboardComponent,
     SupportTicketsComponent,
     SharedComponent,
+    HeaderComponent,
   ],
 })
 export class AppComponent {}
