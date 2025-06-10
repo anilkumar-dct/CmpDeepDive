@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sever-status',
@@ -7,13 +7,14 @@ import { Component } from '@angular/core';
   templateUrl: './sever-status.component.html',
   styleUrl: './sever-status.component.css',
 })
-export class SeverStatusComponent {
+export class SeverStatusComponent implements OnInit {
   currentStatus: 'online' | 'offline' | 'unknown' = 'online';
   //changing status every 5 seconds time intervel
   /**
    *
    */
-  constructor() {
+  //use of ngOnInit(){}
+  ngOnInit() {
     setInterval(() => {
       let ran = Math.random();
       if (ran < 0.5) {
