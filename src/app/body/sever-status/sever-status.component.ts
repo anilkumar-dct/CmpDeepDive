@@ -8,5 +8,21 @@ import { Component } from '@angular/core';
   styleUrl: './sever-status.component.css',
 })
 export class SeverStatusComponent {
-  currentStatus = 'online';
+  currentStatus: 'online' | 'offline' | 'unknown' = 'online';
+  //changing status every 5 seconds time intervel
+  /**
+   *
+   */
+  constructor() {
+    setInterval(() => {
+      let ran = Math.random();
+      if (ran < 0.5) {
+        this.currentStatus = 'online';
+      } else if (ran < 0.9) {
+        this.currentStatus = 'offline';
+      } else {
+        this.currentStatus = 'unknown';
+      }
+    }, 5000);
+  }
 }
