@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { ButtonsComponent } from '../../../buttons/buttons.component';
 import { CommonInputComponent } from '../../../common-input/common-input.component';
 import { FormsModule } from '@angular/forms';
@@ -14,16 +21,18 @@ export interface ITicket {
   styleUrl: './new-tickets.component.css',
 })
 export class NewTicketsComponent {
-  input: ITicket = {
-    title: '',
-    request: '',
-  };
+  // input: ITicket = {
+  //   title: '',
+  //   request: '',
+  // };
+  @ViewChild('form') form?: ElementRef<HTMLFormElement>;
   @Output() submit = new EventEmitter<ITicket>();
-
-  onSubmit() {
+  // Use of Template for getting input from user
+  onSubmit(title: string, request: string) {
     this.submit.emit({
-      title: this.input.title,
-      request: this.input.request,
+      title: title,
+      request: request,
     });
+    this.form?.nativeElement.reset();
   }
 }
