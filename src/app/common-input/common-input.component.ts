@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-common-input',
@@ -8,5 +8,10 @@ import { Component, input } from '@angular/core';
   styleUrl: './common-input.component.css',
 })
 export class CommonInputComponent {
-  titileLable = input<string>();
+  @Input() titileLable: string | undefined;
+  // titileLable = input<string>();
+
+  ngOnInit() {
+    console.log(this.titileLable);
+  }
 }
