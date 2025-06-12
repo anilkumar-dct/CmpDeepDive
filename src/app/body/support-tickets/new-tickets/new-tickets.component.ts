@@ -25,14 +25,13 @@ export class NewTicketsComponent {
   //   title: '',
   //   request: '',
   // };
-  @ViewChild('form') form?: ElementRef<HTMLFormElement>;
-  @Output() submit = new EventEmitter<ITicket>();
+  @ViewChild('form') form!: ElementRef<HTMLFormElement>;
+  @Output() create = new EventEmitter<ITicket>();
+
   // Use of Template for getting input from user
-  onSubmit(title: string, request: string) {
-    this.submit.emit({
-      title: title,
-      request: request,
-    });
-    this.form?.nativeElement.reset();
+  onSubmit(e: Event, title: string, request: string) {
+    console.trace('herereeeee', e, title, request);
+    this.create.emit({ title, request });
+    this.form.nativeElement.reset();
   }
 }
